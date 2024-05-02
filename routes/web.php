@@ -24,6 +24,12 @@ Route::get('/', function () {
     ]);
 });
 
+Route::prefix('laxman')->middleware('auth')->group(function(){
+    Route::get('test/{id}',function($id){
+        dd('test',$id);
+    });
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
